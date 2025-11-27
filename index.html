@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ZONA HIP HOP - Inicio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+      <h1>ZONA HIP HOP</h1>
+      <nav>
+          <a href="index.html">Inicio</a>
+          <a href="noticias.html">Noticias</a>
+          <a href="albums.html">Álbumes</a>
+          <a href="sobre.html">Sobre Nosotros</a>
+      </nav>
+  </header>
+
+  <!-- ====================== CARRUSEL ====================== -->
+  <div class="carousel-container">
+      <div class="carousel">
+
+          <div class="slide active">
+              <img src="https://static.tumblr.com/64a60649c8790163a79c82ff8b27a643/oxsg5or/miKn8cblo/tumblr_static_filename_2048_v2.jpg" alt="Hip Hop 1">
+          </div>
+
+          <div class="slide">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV3dHjshRddX-jOKQuxgnYApRQ66CiaETZ4PZAMfB2fwgo9ivckfmlXd5a-2svVjvmoeE&usqp=CAU" alt="Hip Hop 2">
+          </div>
+
+          <div class="slide">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS16CuKMRbuasOPTPal93SfibNquc-VeewVLSJ5AvNgMOzaQUDMnmq0-4XNvXtGcdbTmMo&usqp=CAU" alt="Hip Hop 3">
+          </div>
+
+      </div>
+
+      <!-- Botones -->
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+  </div>
+  <!-- ====================================================== -->
+
+  <section class="contenido">
+
+      <div class="botonera">
+        <button onclick="irLogin()">Iniciar Sesión</button>
+        <button onclick="irRegistro()">Registrarse</button>
+      </div>
+
+  </section>
+
+  <footer>
+      <p>© 2025 Zona Hip Hop</p>
+  </footer>
+
+  <!-- SCRIPT CARRUSEL -->
+  <script>
+      const slides = document.querySelectorAll(".slide");
+      const nextBtn = document.querySelector(".next");
+      const prevBtn = document.querySelector(".prev");
+      let index = 0;
+
+      function showSlide(i) {
+          slides.forEach(slide => slide.classList.remove("active"));
+          slides[i].classList.add("active");
+      }
+
+      nextBtn.addEventListener("click", () => {
+          index = (index + 1) % slides.length;
+          showSlide(index);
+      });
+
+      prevBtn.addEventListener("click", () => {
+          index = (index - 1 + slides.length) % slides.length;
+          showSlide(index);
+      });
+
+      // Auto-play
+      setInterval(() => {
+          index = (index + 1) % slides.length;
+          showSlide(index);
+      }, 4000);
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
